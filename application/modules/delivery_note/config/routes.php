@@ -12,4 +12,4 @@ $route['delivery_note_pos_print']    = 'delivery_note/delivery_note/bdtask_pos_p
 $route['download_delivery_note/(:num)']  = 'delivery_note/delivery_note/bdtask_download_delivery_note/$1';
 $route['delivery_note_edit/(:num)'] = 'delivery_note/delivery_note/bdtask_edit_delivery_note/$1';
 $route['delivery_note_print'] = 'delivery_note/delivery_note/delivery_note_inserted_data_manual';
-
+$route['delivery_note_delete/(:num)'] = 'delivery_note/delivery_note/bdtask_delete_delivery_note/$1';

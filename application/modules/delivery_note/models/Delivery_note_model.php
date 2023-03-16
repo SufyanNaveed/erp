@@ -204,6 +204,7 @@ class Delivery_note_model extends CI_Model {
          $button .=' <a href="'.$base_url.'delivery_note_edit/'.$record->delivery_note_id.'" class="btn edit_btn" data-toggle="tooltip" data-placement="left" title="'. display('update').'"><i class="fal fa-pencil" aria-hidden="true"></i></a> ';
      }
 
+        $button .=' <a href="'.$base_url.'delivery_note_delete/'.$record->delivery_note_id.'" class="btn delete_btn" data-toggle="tooltip" data-placement="left" title="'. display('delete').'"><i class="fal fa-trash-alt" aria-hidden="true"></i></a> ';
        
 
           $details ='  <a href="'.$base_url.'delivery_note_details/'.$record->delivery_note_id.'" class="" >'.$record->delivery_note.'</a>';
@@ -232,6 +233,29 @@ class Delivery_note_model extends CI_Model {
          return $response; 
     }
 
+    public function delete_delivery_note($delivery_note_id)
+    {
+        
+        $this->db->where('VNo', $delivery_note_id);
+        $this->db->delete('acc_transaction');
+
+        $this->db->where('relation_id', $delivery_note_id);
+        $this->db->delete('tax_collection');
+
+        $this->db->where('delivery_note_id', $delivery_note_id);
+        $this->db->delete('delivery_note_details');
+
+        $this->db->where('delivery_note_id', $delivery_note_id);
+        $this->db->delete('delivery_note');
+
+        if ($this->db->affected_rows()) {
+            return true;
+        } else {
+            return false;
+        }
+
+
+    }
 
 public function delivery_note_taxinfo($delivery_note_id){
        return $this->db->select('*')   

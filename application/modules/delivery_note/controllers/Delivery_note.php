@@ -47,6 +47,17 @@ class Delivery_note extends MX_Controller {
         echo json_encode($data);
     } 
 
+    public function bdtask_delete_delivery_note($delivery_note_id = null){
+
+        if ($this->delivery_note_model->delete_delivery_note($delivery_note_id)) {
+            $this->session->set_flashdata('message', display('delete_successfully'));
+        } else {
+            $this->session->set_flashdata('exception', display('please_try_again'));
+        }
+
+        redirect("delivery_note_list");
+    }
+    
     public function bdtask_delivery_note_details($delivery_note_id = null){
          $delivery_note_detail     = $this->delivery_note_model->retrieve_delivery_note_html_data($delivery_note_id);
         $taxfield = $this->db->select('*')

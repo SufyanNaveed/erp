@@ -49,7 +49,7 @@ function addInputField_delivery_note(t) {
                 if(sel==1)
                 {
                     $('.cls1').hide();
-                    $('#unit_2').parent('td').hide();
+                    $('#unit_'+count).parent('td').hide();
                     $('.cls2').attr('colspan',5);
                     $('.cls3').attr('colspan',6);
                 }

@@ -4,7 +4,7 @@
     </a>
 <a href="<?php echo base_url('home') ?>" class="logo"> 
     <span class="logo-lg">
-        <img class="img-fluid" src="<?php echo base_url((!empty($setting->logo)?$setting->logo:'assets/img/icons/mini-logo.png')) ?>" alt="">
+        <img  style="height: 60px; margin-right: 28px; margin-top: -2px" class="img-fluid" src="<?php echo base_url((!empty($setting->logo)?$setting->logo:'assets/img/icons/mini-logo.png')) ?>" alt="">
     </span>
     <span class="logo-mini">
 <img class="img-responsive" src="<?php echo base_url((!empty($setting->favicon)?$setting->favicon:'assets/img/icons/mini-logo.png')) ?>" alt="">
